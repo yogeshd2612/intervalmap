@@ -140,6 +140,13 @@ class intervalmap(object):
         obj._upperitem = self._get_upperitem()
         return obj
 
+    def __eq__(self, obj):
+        res = True
+        res = res and obj._items == self._items[:]
+        res = res and obj._bounds == self._bounds[:]
+        res = res and obj._upperitem == self._get_upperitem()
+        return res
+
     def shrink(self):
         i = 0
         while i < len(self._items)-1:
